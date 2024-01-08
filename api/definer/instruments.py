@@ -11,9 +11,12 @@ class Derivative:
 
 
 def retrieve_deribit_options(currency, expired=False):
-    assert currency in ["ETH", "SOL", "BTC"]
-    expired = "true" if expired else "false"
+    assert currency in ["ETH", "BTC", "USDC", "USDT"]
+    # expired = "true" if expired else "false"
+
+    # https://docs.deribit.com/#public-get_book_summary_by_currency
     instruments = requests.get(
         "https://deribit.com/api/v2/public/get_book_summary_by_currency?currency={}&kind=option".format(currency)
     ).json()["result"]
+
     return instruments

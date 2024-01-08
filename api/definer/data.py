@@ -16,7 +16,7 @@ def graph(address, after):
         transport=sample_transport
     )
 
-    print(datetime.utcfromtimestamp(after).strftime('%Y-%m-%d %H:%M:%S'))
+    # print(datetime.utcfromtimestamp(after).strftime('%Y-%m-%d %H:%M:%S'))
 
     query = gql(
         '''
