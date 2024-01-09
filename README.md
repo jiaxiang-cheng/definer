@@ -7,8 +7,7 @@ Authors:
 [Jiaxiang Cheng](https://www.linkedin.com/in/jiaxiang-cheng/),
 [Xuejing Lyu](https://www.linkedin.com/in/xuejing-lyu-752297178/)
 
-<img alt="Python" src="https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white"/> 
-<img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" />
+<img alt="Python" src="https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white"/> <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" />
 
 -----
 
@@ -42,7 +41,7 @@ oriented with Jupyter Notebooks:
 |           | [3.2 Back-testing Delta Hedge.ipynb](https://github.com/jiaxiang-cheng/definer/blob/main/3.2%20Back-testing%20Delta%20Hedge.ipynb)                       | Back-testing with delta hedging strategy applied with compared performance                                | 
 |           | [3.3 Back-testing Delta-Gamma Hedge.ipynb](https://github.com/jiaxiang-cheng/definer/blob/main/3.3%20Back-testing%20Delta-Gamma%20Hedge.ipynb)           | Back-testing with delta-gamma hedging strategy applied with compared performance                          | 
 | Chapter 4 | [4.1 Deep Deterministic Policy Gradient.ipynb](https://github.com/jiaxiang-cheng/definer/blob/main/4.1%20Deep%20Deterministic%20Policy%20Gradient.ipynb) | Initial implementation of DDPG algorithm using PyTorch                                                    | 
-|           | coming soon ...                                                                                                                                          | Dynamic minting strategy with DDPG algorithm                                                              | 
+|           | <img width=700/> coming soon ...                                                                                                                         | Dynamic minting strategy with DDPG algorithm                                                              | 
 
 
 [//]: # (```)
