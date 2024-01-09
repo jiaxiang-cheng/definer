@@ -1,5 +1,5 @@
 # DeFiNER
-Decentralized Finance Navigates Every Route     
+**Decentralized Finance Navigates Every Route**    
 Fintech-As-A-Service: Hackathon of NUS Fintech Summit 2024.     
 Author: 
 [*Jiaxiang Cheng*](https://www.linkedin.com/in/jiaxiang-cheng/),
@@ -7,7 +7,7 @@ Author:
 
 -----
 
-
+![showcase](img/viz_back-testing.png)
 
 
 [//]: # (```)
