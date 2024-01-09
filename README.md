@@ -59,6 +59,8 @@ oriented with Jupyter Notebooks, including results from static modelling to dyna
 | *coming soon ...*                                                                                                                                                                                                             | 
 | Dynamic minting strategy with DDPG algorithm                                                                                                                                                                                  |
 
+-----
+
 For more information, please check out our video pitch and documented report.
 
 [//]: # (```)
