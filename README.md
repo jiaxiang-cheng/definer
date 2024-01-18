@@ -31,6 +31,12 @@ fully hedging the impermanent loss raised from the liquidity position in Uniswap
 As required by the submission criterion of the hackathon, the project is initially
 oriented with Jupyter Notebooks, including results from static modelling to dynamic back-testing:
 
+```
+The notebook table is out-dated. We got a lot more new work already! 
+
+Will polish the table later!!
+```
+
 | DeFiNER Notebooks                                                                                                                                                                                                             | 
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Chapter 1**                                                                                                                                                                                                                 | 
@@ -56,7 +62,7 @@ oriented with Jupyter Notebooks, including results from static modelling to dyna
 | **Chapter 4**                                                                                                                                                                                                                 | 
 | [4.1 Deep Deterministic Policy Gradient.ipynb](https://github.com/jiaxiang-cheng/definer/blob/main/4.1%20Deep%20Deterministic%20Policy%20Gradient.ipynb)                                                                      | 
 | Initial implementation of DDPG algorithm using PyTorch                                                                                                                                                                        | 
-| *coming soon ...*                                                                                                                                                                                                             | 
+| *completed, table to be updated*                                                                                                                                                                                              | 
 | Dynamic minting strategy with DDPG algorithm                                                                                                                                                                                  |
 
 -----
