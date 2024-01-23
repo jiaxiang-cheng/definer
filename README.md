@@ -17,7 +17,11 @@ This project provides a solution framework for hedging impermanent loss of liqui
 providers in Uniswap V3 with concentrated liquidity provision, which is realized
 with a delta-gamma hedging strategy. The bact-testing showcase is presented below:
 
-![showcase](img/back-testing_delta-gamma_rounded.png)
+[//]: # (![showcase]&#40;img/back-testing_delta-gamma_rounded.png&#41;)
+
+|         Gamma Hedging Strategy          |             Delta-Gamma Hedging Strategy              |
+|:---------------------------------------:|:-----------------------------------------------------:|
+| ![showcase](img/back-testing_gamma.png) | ![showcase](img/back-testing_delta-gamma_rounded.png) |
 
 [//]: # (![showcase]&#40;img/back-testing_delta-gamma.png&#41;)
 
@@ -32,8 +36,15 @@ We also proposed a dynamic minting strategy based on deep deterministic policy
 gradient (DDPG), which is a kind of deep reinforcement learning model, together with
 the tau-reset strategy. The bact-testing showcase is presented below:
 
-![showcase](img/dynamic_minting_tau100.png)
-![showcase](img/dynamic_minting_fee_tau100.png)
+[//]: # (![showcase]&#40;img/dynamic_minting_tau100.png&#41;)
+
+[//]: # (![showcase]&#40;img/dynamic_minting_fee_tau100.png&#41;)
+
+|                    tau = 100                    |                    tau = 200                    |
+|:-----------------------------------------------:|:-----------------------------------------------:|
+|   ![showcase](img/dynamic_minting_tau100.png)   |   ![showcase](img/dynamic_minting_tau200.png)   |
+| ![showcase](img/dynamic_minting_fee_tau100.png) | ![showcase](img/dynamic_minting_fee_tau200.png) |
+
 
 ## Notebooks
 
