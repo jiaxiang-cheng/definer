@@ -94,111 +94,111 @@ def get_liquidity(asqrt, asqrtA, asqrtB, amount0, amount1, decimal0, decimal1):
         return liquidity1
 
 
-def get_initial_wealth(base, dpd, decimal, SMIN, SMAX, target):
+def get_initial_wealth(base, df, decimal, lower, upper, target):
 
     if base == 0:  # Token 0 USDC as the base token
 
-        sqrt0 = np.sqrt(dpd['close'].iloc[-1] * 10 ** decimal)
-        dpd['price0'] = dpd['close']
+        sqrt0 = np.sqrt(df['close'].iloc[-1] * 10 ** decimal)
+        df['price0'] = df['close']
 
     else:
 
-        sqrt0 = np.sqrt(1 / dpd['close'].iloc[-1] * 10 ** decimal)
-        dpd['price0'] = 1 / dpd['close']
+        sqrt0 = np.sqrt(1 / df['close'].iloc[-1] * 10 ** decimal)
+        df['price0'] = 1 / df['close']
 
-    if SMIN < sqrt0 < SMAX:
+    if lower < sqrt0 < upper:
 
-        deltaL = target / ((sqrt0 - SMIN) + (((1 / sqrt0) - (1 / SMAX)) * (dpd['price0'].iloc[-1] * 10 ** decimal)))
-        amount1 = deltaL * (sqrt0 - SMIN)
-        amount0 = deltaL * ((1 / sqrt0) - (1 / SMAX)) * 10 ** decimal
+        deltaL = target / ((sqrt0 - lower) + (((1 / sqrt0) - (1 / upper)) * (df['price0'].iloc[-1] * 10 ** decimal)))
+        amount1 = deltaL * (sqrt0 - lower)
+        amount0 = deltaL * ((1 / sqrt0) - (1 / upper)) * 10 ** decimal
 
-    elif sqrt0 < SMIN:
+    elif sqrt0 < lower:
 
-        deltaL = target / (((1 / SMIN) - (1 / SMAX)) * (dpd['price0'].iloc[-1]))
+        deltaL = target / (((1 / lower) - (1 / upper)) * (df['price0'].iloc[-1]))
         amount1 = 0
-        amount0 = deltaL * ((1 / SMIN) - (1 / SMAX))
+        amount0 = deltaL * ((1 / lower) - (1 / upper))
 
     else:
 
-        deltaL = target / (SMAX - SMIN)
-        amount1 = deltaL * (SMAX - SMIN)
+        deltaL = target / (upper - lower)
+        amount1 = deltaL * (upper - lower)
         amount0 = 0
 
     return amount0, amount1, deltaL
 
 
-def get_fee(dpd, base, mini, maxi, myliquidity, decimal0, decimal1, decimal):
-    dpd[['ActiveLiq', 'amount0', 'amount1', 'amount0unb', 'amount1unb']] = 0
+def get_fee(df, base, mini, maxi, liquidity, decimal0, decimal1, decimal):
+    df[['ActiveLiq', 'amount0', 'amount1', 'amount0unb', 'amount1unb']] = 0
 
     if base == 0:
 
-        for i, row in dpd.iterrows():
+        for i, row in df.iterrows():
 
-            if dpd['high'].iloc[i] > mini and dpd['low'].iloc[i] < maxi:
-                dpd.iloc[i, dpd.columns.get_loc('ActiveLiq')] = (
-                        (min(maxi, dpd['high'].iloc[i]) - max(dpd['low'].iloc[i], mini)) /
-                        (dpd['high'].iloc[i] - dpd['low'].iloc[i]) * 100)
+            if df['high'].iloc[i] > mini and df['low'].iloc[i] < maxi:
+                df.iloc[i, df.columns.get_loc('ActiveLiq')] = (
+                        (min(maxi, df['high'].iloc[i]) - max(df['low'].iloc[i], mini)) /
+                        (df['high'].iloc[i] - df['low'].iloc[i]) * 100)
             else:
-                dpd.iloc[i, dpd.columns.get_loc('ActiveLiq')] = 0
+                df.iloc[i, df.columns.get_loc('ActiveLiq')] = 0
 
-            amounts = get_amounts(dpd['price0'].iloc[i],
-                                  mini, maxi, myliquidity, decimal0, decimal1)
-            dpd.iloc[i, dpd.columns.get_loc('amount0')] = amounts[1]
-            dpd.iloc[i, dpd.columns.get_loc('amount1')] = amounts[0]
+            amounts = get_amounts(df['price0'].iloc[i],
+                                  mini, maxi, liquidity, decimal0, decimal1)
+            df.iloc[i, df.columns.get_loc('amount0')] = amounts[1]
+            df.iloc[i, df.columns.get_loc('amount1')] = amounts[0]
 
-            amountsunb = get_amounts((dpd['price0'].iloc[i]),
+            amountsunb = get_amounts((df['price0'].iloc[i]),
                                      1.0001 ** (-887220), 1.0001 ** 887220, 1, decimal0, decimal1)
-            dpd.iloc[i, dpd.columns.get_loc('amount0unb')] = amountsunb[1]
-            dpd.iloc[i, dpd.columns.get_loc('amount1unb')] = amountsunb[0]
+            df.iloc[i, df.columns.get_loc('amount0unb')] = amountsunb[1]
+            df.iloc[i, df.columns.get_loc('amount1unb')] = amountsunb[0]
 
     else:
 
-        for i, row in dpd.iterrows():
+        for i, row in df.iterrows():
 
-            if (1 / dpd['low'].iloc[i]) > mini and (1 / dpd['high'].iloc[i]) < maxi:
-                dpd.iloc[i, dpd.columns.get_loc('ActiveLiq')] = (min(maxi, 1 / dpd['low'].iloc[i]) - max(
-                    1 / dpd['high'].iloc[i], mini)) / ((1 / dpd['low'].iloc[i]) - (1 / dpd['high'].iloc[i])) * 100
+            if (1 / df['low'].iloc[i]) > mini and (1 / df['high'].iloc[i]) < maxi:
+                df.iloc[i, df.columns.get_loc('ActiveLiq')] = (min(maxi, 1 / df['low'].iloc[i]) - max(
+                    1 / df['high'].iloc[i], mini)) / ((1 / df['low'].iloc[i]) - (1 / df['high'].iloc[i])) * 100
             else:
-                dpd.iloc[i, dpd.columns.get_loc('ActiveLiq')] = 0
+                df.iloc[i, df.columns.get_loc('ActiveLiq')] = 0
 
-            amounts = get_amounts((dpd['price0'].iloc[i] * 10 ** decimal),
-                                  mini, maxi, myliquidity, decimal0, decimal1)
-            dpd.iloc[i, dpd.columns.get_loc('amount0')] = amounts[0]
-            dpd.iloc[i, dpd.columns.get_loc('amount1')] = amounts[1]
+            amounts = get_amounts((df['price0'].iloc[i] * 10 ** decimal),
+                                  mini, maxi, liquidity, decimal0, decimal1)
+            df.iloc[i, df.columns.get_loc('amount0')] = amounts[0]
+            df.iloc[i, df.columns.get_loc('amount1')] = amounts[1]
 
-            amountsunb = get_amounts((dpd['price0'].iloc[i]),
+            amountsunb = get_amounts((df['price0'].iloc[i]),
                                      1.0001 ** (-887220), 1.0001 ** 887220, 1, decimal0, decimal1)
-            dpd.iloc[i, dpd.columns.get_loc('amount0unb')] = amountsunb[0]
-            dpd.iloc[i, dpd.columns.get_loc('amount1unb')] = amountsunb[1]
+            df.iloc[i, df.columns.get_loc('amount0unb')] = amountsunb[0]
+            df.iloc[i, df.columns.get_loc('amount1unb')] = amountsunb[1]
 
-    dpd['myfee0'] = dpd['fee0token'] * myliquidity * dpd['ActiveLiq'] / 100
-    dpd['myfee1'] = dpd['fee1token'] * myliquidity * dpd['ActiveLiq'] / 100
+    df['myfee0'] = df['fee0token'] * liquidity * df['ActiveLiq'] / 100
+    df['myfee1'] = df['fee1token'] * liquidity * df['ActiveLiq'] / 100
 
     if base == 0:
 
-        dpd['feeV'] = dpd['myfee0'] + dpd['myfee1'] * dpd['close']
-        dpd['amountV'] = dpd['amount0'] + dpd['amount1'] * dpd['close']
-        dpd['amountunb'] = dpd['amount0unb'] + dpd['amount1unb'] * dpd['close']
-        dpd['fgV'] = dpd['fee0token'] + dpd['fee1token'] * dpd['close']
+        df['feeV'] = df['myfee0'] + df['myfee1'] * df['close']
+        df['amountV'] = df['amount0'] + df['amount1'] * df['close']
+        df['amountunb'] = df['amount0unb'] + df['amount1unb'] * df['close']
+        df['fgV'] = df['fee0token'] + df['fee1token'] * df['close']
 
-        dpd['feeusd'] = dpd['feeV'] * (
-                dpd['pool.totalValueLockedUSD'].iloc[0] /
-                (dpd['pool.totalValueLockedToken1'].iloc[0] * dpd['close'].iloc[0] + (
-                dpd['pool.totalValueLockedToken0'].iloc[0]))
+        df['feeusd'] = df['feeV'] * (
+                df['pool.totalValueLockedUSD'].iloc[0] /
+                (df['pool.totalValueLockedToken1'].iloc[0] * df['close'].iloc[0] + (
+                df['pool.totalValueLockedToken0'].iloc[0]))
         )
 
     else:
 
-        dpd['feeV'] = dpd['myfee0'] / dpd['close'] + dpd['myfee1']
-        dpd['amountV'] = dpd['amount0'] / dpd['close'] + dpd['amount1']
-        dpd['feeVbase0'] = dpd['myfee0'] + dpd['myfee1'] * dpd['close']
-        dpd['amountunb'] = dpd['amount0unb'] / dpd['close'] + dpd['amount1unb']
-        dpd['fgV'] = dpd['fee0token'] / dpd['close'] + dpd['fee1token']
+        df['feeV'] = df['myfee0'] / df['close'] + df['myfee1']
+        df['amountV'] = df['amount0'] / df['close'] + df['amount1']
+        df['feeVbase0'] = df['myfee0'] + df['myfee1'] * df['close']
+        df['amountunb'] = df['amount0unb'] / df['close'] + df['amount1unb']
+        df['fgV'] = df['fee0token'] / df['close'] + df['fee1token']
 
-        dpd['feeusd'] = dpd['feeV'] * (
-                dpd['pool.totalValueLockedUSD'].iloc[0] /
-                (dpd['pool.totalValueLockedToken1'].iloc[0] + (
-                            dpd['pool.totalValueLockedToken0'].iloc[0] / dpd['close'].iloc[0]))
+        df['feeusd'] = df['feeV'] * (
+                df['pool.totalValueLockedUSD'].iloc[0] /
+                (df['pool.totalValueLockedToken1'].iloc[0] + (
+                            df['pool.totalValueLockedToken0'].iloc[0] / df['close'].iloc[0]))
         )
 
-    return dpd
+    return df
