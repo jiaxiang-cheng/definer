@@ -88,6 +88,26 @@ Awesome reference for core calculation in Uniswap V3 during back-testing:
 Hedging solutions partially inspired by:    
 [adamkhakhar/lp-delta-hedge](https://github.com/adamkhakhar/lp-delta-hedge)
 
+## References
+
+Schaller, A. J. (2022). Hedging the Risks of Liquidity Providers [Bachelor’s Thesis]. ETH Zürich.
+
+Khakhar, A., & Chen, X. (2022). Delta Hedging Liquidity Positions on Automated Market Makers (arXiv:2208.03318). arXiv. https://doi.org/10.48550/arXiv.2208.03318
+
+Fan, Z., Marmolejo-Cossío, F., Moroz, D. J., Neuder, M., Rao, R., & Parkes, D. C. (2023). Strategic Liquidity Provision in Uniswap v3 (arXiv:2106.12033). arXiv. http://arxiv.org/abs/2106.12033
+
+Silver, D., Lever, G., Heess, N., Degris, T., Wierstra, D., & Riedmiller, M. (2014). Deterministic Policy Gradient Algorithms. Proceedings of the 31st International Conference on Machine Learning, 387–395. https://proceedings.mlr.press/v32/silver14.html
+
+Cao, J., Chen, J., Hull, J., & Poulos, Z. (2021). Deep Hedging of Derivatives Using Reinforcement Learning. The Journal of Financial Data Science, 3(1), 10–27. https://doi.org/10.3905/jfds.2020.1.052
+
+Prospere, W. (2022, May 19). Squeeth Primer: A guide to understanding Opyn’s implementation of Squeeth. Opyn. https://medium.com/opyn/squeeth-primer-a-guide-to-understanding-opyns-implementation-of-squeeth-a0f5e8b95684
+
+Elsts, A. (2023). Liquidity Math in Uniswap v3. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.4575232
+
+Clark, J. (2022, November 16). Hedging Uniswap v3 with SQUEETH. Opyn. https://medium.com/opyn/hedging-uniswap-v3-with-squeeth-bcaf1750ea11
+
+Hedging Impermanent Loss with Power Perpetuals (2). (n.d.). Retrieved January 6, 2024, from https://docs.deri.io/library/academy/power-perpetuals/hedging-impermanent-loss-with-power-perpetuals-2
+
 -----
 
 For more information, please check out our video pitch and documented report.
