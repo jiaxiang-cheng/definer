@@ -27,7 +27,7 @@ with a delta-gamma hedging strategy. The bact-testing showcase is presented belo
 
 Based on the back-testing results, 
 of which the process is documented in 
-[3.3 Back-testing Delta-Gamma Hedge.ipynb](https://github.com/jiaxiang-cheng/definer/blob/34541a261b500138453757c3da131004d91a774a/notebooks/3.3%20Back-testing%20Delta-Gamma%20Hedge.ipynb) 
+`./notebooks/3.3 Back-testing Delta-Gamma Hedge.ipynb`
 in detail,
 the proposed hedging strategy is potential for
 fully hedging the impermanent loss raised from the liquidity position in Uniswap V3.
@@ -52,33 +52,33 @@ The current project is initially oriented with Jupyter Notebooks,
 including results from static modelling to dynamic back-testing, for both
 hedging strategy and minting strategy:
 
-| DeFiNER Notebooks  `./notebooks/`                                                                                                                                                                                                  | 
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Chapter 1**                                                                                                                                                                                                                      | 
-| [1.1 Impermanent Loss.ipynb](https://github.com/jiaxiang-cheng/definer/blob/45f8c8d35d231ff8551f2524bb1b65db00dd3106/notebooks/1.1%20Impermanent%20Loss.ipynb)                                                                     | 
-| Static impermanent loss (IL) modelling of liquidity provider with both uniform and concentrated liquidity                                                                                                                          | 
-| [1.2 Profit & Loss.ipynb](https://github.com/jiaxiang-cheng/definer/blob/45f8c8d35d231ff8551f2524bb1b65db00dd3106/notebooks/1.2%20Profit%20%26%20Loss.ipynb)                                                                       | 
-| Static profit and loss (PNL) modelling with uniform liquidity (**TO DO**: with concentrated liquidity)                                                                                                                             | 
-|                                                                                                                                                                                                                                    | 
-| **Chapter 2**                                                                                                                                                                                                                      | 
-| [2.1 Delta Hedging.ipynb](https://github.com/jiaxiang-cheng/definer/blob/45f8c8d35d231ff8551f2524bb1b65db00dd3106/notebooks/2.1%20Delta%20Hedging.ipynb)                                                                           | 
-| Static demonstration of delta hedging strategy powered by Deribit options and accelerated SGD algorithm                                                                                                                            | 
-| [2.2 Delta-Gamma Hedging.ipynb](https://github.com/jiaxiang-cheng/definer/blob/45f8c8d35d231ff8551f2524bb1b65db00dd3106/notebooks/2.2%20Delta-Gamma%20Hedging.ipynb)                                                               | 
-| Static demonstration of delta-gamma hedging strategy power by Squeeth and Deribit options                                                                                                                                          | 
-|                                                                                                                                                                                                                                    | 
-| **Chapter 3**                                                                                                                                                                                                                      | 
-| [3.1 Back-testing No Hedge.ipynb](https://github.com/jiaxiang-cheng/definer/blob/45f8c8d35d231ff8551f2524bb1b65db00dd3106/notebooks/3.1%20Back-testing%20No%20Hedge.ipynb)                                                         | 
-| Back-testing with no hedging strategy while fee and impermanent loss calculated                                                                                                                                                    | 
-| [3.2 Back-testing Delta Hedge.ipynb](https://github.com/jiaxiang-cheng/definer/blob/45f8c8d35d231ff8551f2524bb1b65db00dd3106/notebooks/3.2%20Back-testing%20Delta%20Hedge.ipynb)                                                   | 
-| Back-testing with delta hedging strategy applied with compared performance to no hedging strategy applied. The results show that delta hedging strategy together with fee earned can partially hedge the impermanent loss.         | 
-| [3.3 Back-testing Delta-Gamma Hedge.ipynb](https://github.com/jiaxiang-cheng/definer/blob/41c71bfdfbbd5987fc360935072ff82574e231b1/notebooks/3.3%20Back-testing%20Delta-Gamma%20Hedge.ipynb)                                       | 
-| Back-testing with delta-gamma hedging strategy applied with compared performance. The results whos that delta-gamma hedging strategy can potentially fully hedge the impermanent loss, thus achieved the optimal performance.      | 
-|                                                                                                                                                                                                                                    | 
-| **Chapter 4**                                                                                                                                                                                                                      | 
-| [4.1 Deep Deterministic Policy Gradient.ipynb](https://github.com/jiaxiang-cheng/definer/blob/45f8c8d35d231ff8551f2524bb1b65db00dd3106/notebooks/4.1%20Deep%20Deterministic%20Policy%20Gradient%20Development.ipynb)               | 
-| Development of DDPG algorithm using PyTorch                                                                                                                                                                                        | 
-| [4.3.3 Back-testing Dynamic Minting (Tau-Reset = 200)](https://github.com/jiaxiang-cheng/definer/blob/41c71bfdfbbd5987fc360935072ff82574e231b1/notebooks/4.3.3%20Back-testing%20Dynamic%20Minting%20(Tau-Reset%20%3D%20200).ipynb) | 
-| Back-testing with dynamic minting strategy based on DDPG algorithm and tau-reset strategy.                                                                                                                                         |
+| DeFiNER Notebooks  `./notebooks/`                                                                                                                                                                                             | 
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Chapter 1**                                                                                                                                                                                                                 | 
+| 1.1 Impermanent Loss.ipynb                                                                                                                                                                                                    | 
+| Static impermanent loss (IL) modelling of liquidity provider with both uniform and concentrated liquidity                                                                                                                     | 
+| 1.2 Profit & Loss.ipynb                                                                                                                                                                                                       | 
+| Static profit and loss (PNL) modelling with uniform liquidity (**TO DO**: with concentrated liquidity)                                                                                                                        | 
+|                                                                                                                                                                                                                               | 
+| **Chapter 2**                                                                                                                                                                                                                 | 
+| [2.1 Delta Hedging.ipynb                                                                                                                                                                                                      | 
+| Static demonstration of delta hedging strategy powered by Deribit options and accelerated SGD algorithm                                                                                                                       | 
+| [2.2 Delta-Gamma Hedging.ipynb                                                                                                                                                                                                | 
+| Static demonstration of delta-gamma hedging strategy power by Squeeth and Deribit options                                                                                                                                     | 
+|                                                                                                                                                                                                                               | 
+| **Chapter 3**                                                                                                                                                                                                                 | 
+| 3.1 Back-testing No Hedge.ipynb                                                                                                                                                                                               | 
+| Back-testing with no hedging strategy while fee and impermanent loss calculated                                                                                                                                               | 
+| 3.2 Back-testing Delta Hedge.ipynb                                                                                                                                                                                            | 
+| Back-testing with delta hedging strategy applied with compared performance to no hedging strategy applied. The results show that delta hedging strategy together with fee earned can partially hedge the impermanent loss.    | 
+| 3.3 Back-testing Delta-Gamma Hedge.ipynb                                                                                                                                                                                      | 
+| Back-testing with delta-gamma hedging strategy applied with compared performance. The results whos that delta-gamma hedging strategy can potentially fully hedge the impermanent loss, thus achieved the optimal performance. | 
+|                                                                                                                                                                                                                               | 
+| **Chapter 4**                                                                                                                                                                                                                 | 
+| 4.1 Deep Deterministic Policy Gradient.ipynb                                                                                                                                                                                  | 
+| Development of DDPG algorithm using PyTorch                                                                                                                                                                                   | 
+| 4.3.3 Back-testing Dynamic Minting (Tau-Reset = 200)                                                                                                                                                                          | 
+| Back-testing with dynamic minting strategy based on DDPG algorithm and tau-reset strategy.                                                                                                                                    |
 
 ## Credits
 
