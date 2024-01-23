@@ -11,7 +11,7 @@ Authors:
 
 <img alt="Python" src="https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white"/> <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" />
 
-[//]: # (-----)
+-----
 
 This project provides a solution framework for hedging impermanent loss of liquidity
 providers in Uniswap V3 with concentrated liquidity provision, which is realized
@@ -74,7 +74,7 @@ Will polish the table later!!
 | *completed, table to be updated*                                                                                                                                                                                              | 
 | Dynamic minting strategy with DDPG algorithm                                                                                                                                                                                  |
 
-## Credits
+### Credits
 
 Awesome reference for core calculation in Uniswap V3 during back-testing:    
 [DefiLab-xyz/uniswap-v3-backtest-python](https://github.com/DefiLab-xyz/uniswap-v3-backtest-python)
