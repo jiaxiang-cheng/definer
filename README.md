@@ -1,30 +1,39 @@
 # DeFiNER
-**Decentralized Finance Navigates Every Route**    
+**Decentralized Finance Navigates Every Route**
+
 *A Solution Framework for Modeling and Hedging Impermanent Loss and
 Dynamic Liquidity Provision Using Deep Reinforcement Learning
-in Uniswap V3 with Concentrated Liquidity*. Fintech as a Service (FaaS): Hackathon of NUS Fintech Summit 2024.     
+in Uniswap V3 with Concentrated Liquidity*.      
+Fintech-as-a-Service (FaaS): Hackathon of NUS Fintech Summit 2024.     
 Authors: 
 [Jiaxiang Cheng](https://www.linkedin.com/in/jiaxiang-cheng/),
 [Xuejing Lyu](https://www.linkedin.com/in/xuejing-lyu-752297178/)
 
 <img alt="Python" src="https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white"/> <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" />
 
------
+[//]: # (-----)
 
 This project provides a solution framework for hedging impermanent loss of liquidity
 providers in Uniswap V3 with concentrated liquidity provision, which is realized
 with a delta-gamma hedging strategy. The bact-testing showcase is presented below:
 
-![showcase](img/viz_back-testing.png)
+![showcase](img/back-testing_delta-gamma_rounded.png)
 
 [//]: # (![showcase]&#40;img/back-testing_delta-gamma.png&#41;)
 
 Based on the back-testing results, 
 of which the process is documented in 
-[3.3 Back-testing Delta-Gamma Hedge.ipynb](https://github.com/jiaxiang-cheng/definer/blob/main/3.3%20Back-testing%20Delta-Gamma%20Hedge.ipynb) 
+[3.3 Back-testing Delta-Gamma Hedge.ipynb](https://github.com/jiaxiang-cheng/definer/blob/34541a261b500138453757c3da131004d91a774a/notebooks/3.3%20Back-testing%20Delta-Gamma%20Hedge.ipynb) 
 in detail,
 the proposed hedging strategy is potential for
 fully hedging the impermanent loss raised from the liquidity position in Uniswap V3.
+
+We also proposed a dynamic minting strategy based on deep deterministic policy
+gradient (DDPG), which is a kind of deep reinforcement learning model, together with
+the tau-reset strategy. The bact-testing showcase is presented below:
+
+![showcase](img/dynamic_minting_tau100.png)
+![showcase](img/dynamic_minting_fee_tau100.png)
 
 ## Overview
 
@@ -64,6 +73,14 @@ Will polish the table later!!
 | Initial implementation of DDPG algorithm using PyTorch                                                                                                                                                                        | 
 | *completed, table to be updated*                                                                                                                                                                                              | 
 | Dynamic minting strategy with DDPG algorithm                                                                                                                                                                                  |
+
+## Credits
+
+Awesome reference for core calculation in Uniswap V3 during back-testing:    
+[DefiLab-xyz/uniswap-v3-backtest-python](https://github.com/DefiLab-xyz/uniswap-v3-backtest-python)
+
+Solutions partially inspired by:    
+[adamkhakhar/lp-delta-hedge](https://github.com/adamkhakhar/lp-delta-hedge)
 
 -----
 
